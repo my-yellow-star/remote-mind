@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import localFont from "next/font/local";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: "모바일 편지 - 리모트마인드",
@@ -23,7 +24,9 @@ export default function RootLayout({
       <body
         className={`${pretendard.className} antialiased grid place-items-center`}
       >
-        <div className="w-screen max-w-[1200px]">{children}</div>
+        <Suspense>
+          <div className="w-screen max-w-[1200px]">{children}</div>
+        </Suspense>
       </body>
     </html>
   );
